@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dyvensvit.dovidnyk" >
+    package="com.dyvensvit.handbook" >
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+
+
         <activity
-            android:name=".DepartmentsActivity"
+            android:name="com.dyvensvit.handbook.DepartmentsActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,19 +19,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".CommunitiesActivity"
-            android:parentActivityName=".DepartmentsActivity" >
+            android:name="com.dyvensvit.handbook.CommunitiesActivity"
+            android:parentActivityName="com.dyvensvit.handbook.DepartmentsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".DepartmentsActivity" />
+                android:value="com.dyvensvit.handbook.DepartmentsActivity" />
         </activity>
         <activity
-            android:name=".DepartmentPagerActivity"
-            android:parentActivityName=".CommunitiesActivity" >
+            android:name="com.dyvensvit.handbook.DepartmentPagerActivity"
+            android:parentActivityName="com.dyvensvit.handbook.CommunitiesActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".CommunitiesActivity" />
+                android:value="com.dyvensvit.handbook.CommunitiesActivity" />
         </activity>
     </application>
-
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 </manifest>

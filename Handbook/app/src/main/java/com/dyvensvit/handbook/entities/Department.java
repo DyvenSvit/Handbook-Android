@@ -1,4 +1,4 @@
-package com.dyvensvit.dovidnyk.entities;
+package com.dyvensvit.handbook.entities;
 
 import android.os.Parcel;
 import android.os.Parcelable;

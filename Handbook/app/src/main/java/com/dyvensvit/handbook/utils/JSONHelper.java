@@ -1,12 +1,12 @@
-package com.dyvensvit.dovidnyk.utils;
+package com.dyvensvit.handbook.utils;
 
 import android.content.res.Resources;
 
-import com.dyvensvit.dovidnyk.R;
-import com.dyvensvit.dovidnyk.entities.*;
+import com.dyvensvit.handbook.R;
+import com.dyvensvit.handbook.entities.Community;
+import com.dyvensvit.handbook.entities.Department;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.io.*;
 import org.json.JSONArray;
 import org.json.JSONException;

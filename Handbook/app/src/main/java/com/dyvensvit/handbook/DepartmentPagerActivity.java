@@ -1,13 +1,16 @@
-package com.dyvensvit.dovidnyk;
+package com.dyvensvit.handbook;
 
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.Window;
+import android.widget.TextView;
 
-import com.dyvensvit.dovidnyk.entities.Community;
+import com.dyvensvit.handbook.R;
+import com.dyvensvit.handbook.entities.Community;
 
 import java.util.ArrayList;
 
@@ -21,9 +24,15 @@ public class DepartmentPagerActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE); // <- insert this
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_department_pager);
-        setTitle("Спільноти");
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
+        TextView title = ((TextView)findViewById(R.id.caption_text));
+        title.setText("Спільноти");
+
+
+
         Bundle bundle;
         if (savedInstanceState != null) {
             // Restore value of members from saved state

@@ -1,4 +1,4 @@
-package com.dyvensvit.dovidnyk;
+package com.dyvensvit.handbook;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

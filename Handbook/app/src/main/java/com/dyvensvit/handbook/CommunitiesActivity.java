@@ -1,18 +1,27 @@
-package com.dyvensvit.dovidnyk;
+package com.dyvensvit.handbook;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SpinnerAdapter;
+import android.widget.TextView;
 
-import com.dyvensvit.dovidnyk.entities.Community;
-import com.dyvensvit.dovidnyk.entities.Department;
-import  com.dyvensvit.dovidnyk.utils.JSONHelper;
+import com.dyvensvit.handbook.R;
+import com.dyvensvit.handbook.entities.Community;
+import com.dyvensvit.handbook.entities.Department;
+import com.dyvensvit.handbook.utils.JSONHelper;
 
 import java.util.ArrayList;
 
@@ -22,9 +31,20 @@ public class CommunitiesActivity extends ActionBarActivity {
     String mCommunityTitles[];
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE); // <- insert this
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_communities);
 
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.custom_title);
+
+        /*
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            getSupportActionBar().setDisplayShowHomeEnabled(false);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
+        }
+*/
         Bundle bundle;
 
         if (savedInstanceState != null) {
@@ -35,9 +55,8 @@ public class CommunitiesActivity extends ActionBarActivity {
         }
 
         mDepartment = bundle.getParcelable("department");
-
-        setTitle(mDepartment.mTitle);
-
+        TextView title = ((TextView)findViewById(R.id.caption_text));
+        title.setText(mDepartment.mTitle);
         if(bundle.containsKey("communities"))
         {
             mCommunities = bundle.getParcelableArrayList("communities");
@@ -86,7 +105,6 @@ public class CommunitiesActivity extends ActionBarActivity {
         // Always call the superclass so it can save the view hierarchy state
         super.onSaveInstanceState(savedInstanceState);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

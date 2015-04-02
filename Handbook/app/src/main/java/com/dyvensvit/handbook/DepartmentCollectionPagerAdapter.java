@@ -1,11 +1,10 @@
-package com.dyvensvit.dovidnyk;
+package com.dyvensvit.handbook;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.dyvensvit.dovidnyk.entities.Community;
+import com.dyvensvit.handbook.entities.Community;
 
 /**
  * Created by Maksym on 3/29/2015.
